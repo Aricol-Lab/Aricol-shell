@@ -1,7 +1,14 @@
 import QtQuick
 import Quickshell
+import "../../configs/"
+
 
 Row {
+
+  TopPanelConfig {
+    id: topPanelConfig
+  }
+
   spacing: 4
 
   Rectangle {
@@ -10,8 +17,10 @@ Row {
     height: 20
     Text {
       id: clockText
+      color: topPanelConfig.clockTextColor
       font.pixelSize: 20
-      text: "00:00:00"
+      font.family: "Poppins"
+      text: "00:00"
 
       Timer {
         interval: 1000
@@ -21,7 +30,7 @@ Row {
 
         onTriggered: {
           let currentTime = new Date();
-          clockText.text = currentTime.toLocaleTimeString(Qt.locale("vi_VN"),"hh:mm:ss")
+          clockText.text = currentTime.toLocaleTimeString(Qt.locale("vi_VN"),"hh:mm")
         }
       }
 

@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Wayland
 import "../../configs/"
 
+import "../../modules/rim"
 
 PanelWindow {
     id: toppanelWindow
@@ -11,6 +12,7 @@ PanelWindow {
     TopPanelConfig {
       id: topPanelConfig
     }
+
     anchors {
         top: true
         left: true
@@ -20,8 +22,8 @@ PanelWindow {
     implicitHeight: 25
     margins {
       top: 0
-      left: 350
-      right: 350
+      left: 0
+      right: 0
     }
     
     color: "transparent"
@@ -30,15 +32,25 @@ PanelWindow {
         anchors.fill: parent
 
         Rectangle {
+
+          anchors {
+            left: parent.left
+            right: parent.right
+            leftMargin: 500
+            rightMargin: 500
+          }
+
+          id: panelBackground
             width: parent.width
             height: parent.height + 15
             y: -15
             antialiasing: true
-            radius: 10
+            radius: 15
 
 
             color: topPanelConfig.topPanelColor
-            
+
+
             TimeBar {
               anchors.left: parent.left
               anchors.leftMargin: 10 
@@ -67,8 +79,7 @@ PanelWindow {
               shadowVerticalOffset: 0
               autoPaddingEnabled: true
           }
-          }
-
+        }
 
     }
 
