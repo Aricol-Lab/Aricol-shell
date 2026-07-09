@@ -2,10 +2,15 @@ import QtQuick
 import QtQuick.Effects
 import Quickshell
 import Quickshell.Wayland
+import "../../configs/"
+
 
 PanelWindow {
     id: toppanelWindow
-
+      
+    TopPanelConfig {
+      id: topPanelConfig
+    }
     anchors {
         top: true
         left: true
@@ -23,14 +28,13 @@ PanelWindow {
 
     Item {
         anchors.fill: parent
-        clip: true
 
         Rectangle {
             width: parent.width
             height: parent.height + 15
             y: -15
             radius: 10
-            color: "#FFFDD0"
+            color: topPanelConfig.topPanelColor
             
             WorkSpaceBar {
               anchors.centerIn: parent
@@ -42,17 +46,19 @@ PanelWindow {
               anchors.verticalCenter: parent.verticalCenter
               anchors.verticalCenterOffset: 3
             }
-          }
-        MultiEffect {
-          source: parent
-          anchors.fill: parent
+            MultiEffect {
+              source: parent
+              anchors.fill: parent
 
-          shadowEnabled: true
-          shadowColor: "#25000000"
-          shadowBlur: 0.6
-          shadowHorizontalOffset: 1 
-          shadowVerticalOffset: 5
-        }
+              shadowEnabled: true
+              shadowColor: "#25000000"
+              shadowBlur: 0.9
+              shadowHorizontalOffset: 1 
+              shadowVerticalOffset: 0
+              autoPaddingEnabled: true
+          }
+          }
+
 
     }
 

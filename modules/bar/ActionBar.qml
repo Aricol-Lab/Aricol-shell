@@ -1,10 +1,13 @@
 import QtQuick
 import Quickshell
-
+import "../../configs/"
 Row {
   id: action_row
   spacing: 4
-  
+
+  TopPanelConfig {
+    id: topPanelConfig
+  }
 
   Rectangle {
     color: "transparent"
