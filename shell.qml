@@ -1,16 +1,20 @@
-// @pragma UseQApplication
+
 
 import QtQuick
-import QuickShell
+import Quickshell
+import Niri
 import "./modules/bar"
 
 ShellRoot {
     id: root 
-
-    Loader {
-        active: true
-        sourceComponent: Component { 
-            Bar {} 
+    Niri {
+      id: niri 
+      Component.onCompleted: connect()
+      onConnected: console.info("Connected to niri")
+        onErrorOccurred: function(error) {
+            console.error("Niri error:", error)
         }
-    }
+      } 
+
+      LazyLoader{ active: true; component: Bar{}}
 }
