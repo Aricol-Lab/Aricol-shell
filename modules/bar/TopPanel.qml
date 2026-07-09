@@ -33,16 +33,26 @@ PanelWindow {
             width: parent.width
             height: parent.height + 15
             y: -15
+            antialiasing: true
             radius: 10
+
+
             color: topPanelConfig.topPanelColor
             
+            TimeBar {
+              anchors.left: parent.left
+              anchors.leftMargin: 10 
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.verticalCenterOffset: 3
+            }
+
             WorkSpaceBar {
               anchors.centerIn: parent
               anchors.verticalCenterOffset: 8
             }
             ActionBar {
               anchors.right: parent.right
-              anchors.rightMargin: 3
+              anchors.rightMargin: 10
               anchors.verticalCenter: parent.verticalCenter
               anchors.verticalCenterOffset: 3
             }
