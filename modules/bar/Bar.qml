@@ -6,7 +6,7 @@ PanelWindow {
     id: panel
 
     color: "#20000000"
-    BackgroundEffect.blurRegion: Region { item: root.contentItem }
+    BackgroundEffect.blurRegion: Region { item: panel.contentItem }
     anchors {
         top: true
         left: true
@@ -33,7 +33,7 @@ PanelWindow {
 
             anchors.centerIn: parent
 
-            height: 23 
+            height: 20 
             width: workspace_row.width + 24 
             
             color: "#2a2a2a"
