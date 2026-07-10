@@ -8,7 +8,7 @@ Row {
       id: topPanelConfig
     }
 
-    spacing: 6
+    spacing: 5
     
     function windowCountFunc(workspaceID) {
       if (!niri || !niri.windows) return 0;
@@ -23,14 +23,15 @@ Row {
       return count;
 
     }
+    
 
     Repeater {
         model: niri ? niri.workspaces : []
 
         Rectangle {
-            visible: index < 5
-            width: model.isActive ? 35: 15
-            height: 15
+            visible: index < 4
+            width: model.isActive ? 35: 17
+            height: 17
             radius: 10
             property int windowCount: niri && niri.windows ? windowCountFunc(model.id) + (niri.windows.count * 0) : 0
             Behavior on color { ColorAnimation { duration: 200 } }

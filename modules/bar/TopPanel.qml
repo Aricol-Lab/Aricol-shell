@@ -19,10 +19,11 @@ PanelWindow {
         right: true
     }
 
-    implicitHeight: 25
+    implicitHeight: 26
     margins {
       top: 0
       left: 0
+      bottom: 5
       right: 0
     }
     
@@ -36,8 +37,8 @@ PanelWindow {
           anchors {
             left: parent.left
             right: parent.right
-            leftMargin: 500
-            rightMargin: 500
+            leftMargin: 600
+            rightMargin: 600
           }
 
           id: panelBackground
@@ -53,20 +54,29 @@ PanelWindow {
 
             TimeBar {
               anchors.left: parent.left
-              anchors.leftMargin: 10 
+              anchors.leftMargin: 8
               anchors.verticalCenter: parent.verticalCenter
               anchors.verticalCenterOffset: 3
             }
 
+            WorkSpaceNumber {
+              anchors.right: workSpaceBar.left
+              anchors.rightMargin: 4
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.verticalCenterOffset: 4
+
+            }
+            
             WorkSpaceBar {
+              id: workSpaceBar
               anchors.centerIn: parent
               anchors.verticalCenterOffset: 8
             }
             ActionBar {
               anchors.right: parent.right
-              anchors.rightMargin: 10
+              anchors.rightMargin: 8
               anchors.verticalCenter: parent.verticalCenter
-              anchors.verticalCenterOffset: 3
+              anchors.verticalCenterOffset: 2
             }
             MultiEffect {
               source: parent

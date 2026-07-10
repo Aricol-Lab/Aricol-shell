@@ -11,7 +11,7 @@ QtObject {
 
     property string behindActionButton: "#E29578"    
     property string wifiButtonColor: "#FFFDF9"
-    
+    property string totalWorkSpaceColor: "#4A3E3D" 
     property string bluetoothButtonColor: "#FFFDF9"
   
     property string powerButtonColor: "#A63A50" }
