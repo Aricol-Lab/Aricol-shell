@@ -2,7 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import "../../../configs/"
-
+import "../buttons"
 Row {
     id: actionRow
     spacing: 4
@@ -18,36 +18,9 @@ Row {
             id: action
             anchors.centerIn: parent
             spacing: 10
-            Text {
-                text: ""
-                font.pixelSize: 12
-                font.family: "JetBrainsMono Nerd Font"
-                color: Config.actionRowWifiButton
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            Text {
-                text: "󰂯"
-                font.pixelSize: 12
-                font.family: "JetBrainsMono Nerd Font"
-                color: Config.actionRowBluetoothButton
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Text {
-                text: ""
-                font.pixelSize: 12
-                font.family: "JetBrainsMono Nerd Font"
-                color: Config.actionRowPowerButton
-                anchors.verticalCenter: parent.verticalCenter
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    hoverEnabled: true
-                    onClicked: {
-                    }
-                }
-            }
+            WifiButton {}
+            BluetoothButton {}
+            PowerButton {}
         }
 
     }

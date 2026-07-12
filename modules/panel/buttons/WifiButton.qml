@@ -4,9 +4,9 @@ import "../../../configs"
 
 
 Text {
-            text: "󰂯"
+    text: ""
             font.pixelSize: 12
             font.family: "JetBrainsMono Nerd Font"
-            color: Config.actionRowBluetoothButton
+            color: Config.actionRowWifiButton
             anchors.verticalCenter: parent.verticalCenter
 }
