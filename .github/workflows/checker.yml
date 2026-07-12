@@ -23,12 +23,19 @@ jobs:
         run: |
           pacman -Syu --noconfirm
           pacman -S --noconfirm git base-devel
+          
+          useradd -m builder
+          passwd -d builder
+          
+          echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
       - name: Download
         run: |
           cd /tmp
-          git clone https://aur.archlinux.org/yay.git
+          chown -R builder:builder .
+          sudo -u builder git clone https://aur.archlinux.org/yay.git
           cd yay
-          makepkg -si --noconfirm
-          sudo pacman -S --noconfirm quickshell wayland wayland-protocols swaylock swww
+          sudo -u builder makepkg -si --noconfirm
+          sudo -u pacman -S --noconfirm quickshell wayland wayland-protocols swaylock swww
           yay -S --noconfirm qml-niri mpvpaper
           
