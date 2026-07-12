@@ -36,7 +36,7 @@ jobs:
             git clone https://aur.archlinux.org/yay.git
             cd yay
             makepkg -si --noconfirm
-            
+            pacman -S -noconfirm xorg-server-xvfb
             yay -S --noconfirm quickshell wayland wayland-protocols swaylock swww
             
             yay -S --noconfirm qml-niri mpvpaper
