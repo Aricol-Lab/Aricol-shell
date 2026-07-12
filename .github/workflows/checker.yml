@@ -22,7 +22,7 @@ jobs:
       - name: Update & Download
         run: |
           pacman -Syu --noconfirm
-          pacman -S --noconfirm git base-devel
+          pacman -S --noconfirm git base-devel xorg-server-xvfb
           
           useradd -m builder
           passwd -d builder
@@ -36,11 +36,14 @@ jobs:
             git clone https://aur.archlinux.org/yay.git
             cd yay
             makepkg -si --noconfirm
-            pacman -S -noconfirm xorg-server-xvfb
             yay -S --noconfirm quickshell wayland wayland-protocols swaylock swww
             
             yay -S --noconfirm qml-niri mpvpaper
           '
+      - name: Check xvfb
+        run: |
+          which xvfb-run
+          xvfb-run --help
       - name: Run quickshell
         run: |
           sudo -u builder xvfb-run --server-args="-screen 0 1024x768x24" timeout 5s quickshell ./shell.qmp
