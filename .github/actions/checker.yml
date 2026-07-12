@@ -1,1 +1,31 @@
+name: checker
 
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  setup_environment:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+
+    steps:
+      - name: Check os version
+        run: cat /etc/os-release
+
+      - name: Update & Download
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm git base-devel
+      - name: Download
+        run: |
+          cd /tmp
+          git clone https://aur.archlinux.org/yay.git
+          cd yay
+          makepkg -si --noconfirm
+          sudo pacman -S --noconfirm quickshell wayland wayland-protocols swaylock swww
+          yay -S --noconfirm qml-niri mpvpaper
+          
