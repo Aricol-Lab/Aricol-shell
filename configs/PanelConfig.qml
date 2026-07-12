@@ -3,7 +3,7 @@ import QtQuick
 
 QtObject {
     id: config
-    property bool minimalOnUnhover: false
+    property bool minimalOnUnhover: true
     property int maxWorkspaceDot: 3
     property int panelHeight: 26
 

@@ -13,7 +13,6 @@ ShellRoot {
         onErrorOccurred: function(error) {
             console.error("Niri error:", error)
         }
-      } 
-
+      }
       LazyLoader{ active: true; component: Panel{}}
 }

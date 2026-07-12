@@ -20,7 +20,7 @@ PanelWindow {
     margins {
         top: 0
         left: 0
-        bottom: 5
+        bottom: -4
         right: 0
     }
 
@@ -85,9 +85,19 @@ PanelWindow {
                 }
 
                 onExited: {
-                    panelBackGround.isHovered = false
+                    delayUnhover.start()
                 }
             }
+        }
+    }
+
+    Timer {
+        id: delayUnhover
+        interval: 1500
+        repeat: false
+
+        onTriggered: {
+            panelBackGround.isHovered = false
         }
     }
 }
