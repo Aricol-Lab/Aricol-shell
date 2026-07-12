@@ -31,11 +31,18 @@ jobs:
 
       - name: Download
         run: |
-          cd /tmp
-          chown -R builder:builder .
-          sudo -u builder git clone https://aur.archlinux.org/yay.git
-          cd yay
-          sudo -u builder makepkg -si --noconfirm
-          sudo -u pacman -S --noconfirm quickshell wayland wayland-protocols swaylock swww
-          yay -S --noconfirm qml-niri mpvpaper
-          
+          sudo -u builder bash -c '
+            cd /tmp
+            git clone https://aur.archlinux.org/yay.git
+            cd yay
+            makepkg -si --noconfirm
+            
+            yay -S --noconfirm quickshell wayland wayland-protocols swaylock swww
+            
+            yay -S --noconfirm qml-niri mpvpaper
+          '
+      - name: Run quickshell
+        run: |
+          sudo -u builder xvfb-run --server-args="-screen 0 1024x768x24" timeout 5s quickshell ./shell.qmp
+        
+
