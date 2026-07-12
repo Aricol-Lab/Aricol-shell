@@ -3,7 +3,6 @@
 import QtQuick
 import Quickshell
 import Niri
-import "./modules/bar"
 import "./modules/panel"
 ShellRoot {
     id: root 
