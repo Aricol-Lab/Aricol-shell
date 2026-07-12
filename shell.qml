@@ -4,8 +4,7 @@ import QtQuick
 import Quickshell
 import Niri
 import "./modules/bar"
-import "./modules/rim"
-
+import "./modules/panel"
 ShellRoot {
     id: root 
     Niri {
@@ -17,7 +16,5 @@ ShellRoot {
         }
       } 
 
-     // LazyLoader{ active: true; component: Bar{}}
-      LazyLoader{ active: true; component: TopPanel{}}
-      LazyLoader{ active: true; component: TopRim{}}
+      LazyLoader{ active: true; component: Panel{}}
 }

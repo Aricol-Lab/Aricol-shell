@@ -1,15 +1,11 @@
 import QtQuick
 import Quickshell
-import "../../configs/"
+import "../../../configs/"
 Row {
   id: workspace_row
-  
-    TopPanelConfig {
-      id: topPanelConfig
-    }
 
     spacing: 5
-    
+
     function windowCountFunc(workspaceID) {
       if (!niri || !niri.windows) return 0;
 
@@ -23,13 +19,13 @@ Row {
       return count;
 
     }
-    
+
 
     Repeater {
         model: niri ? niri.workspaces : []
 
         Rectangle {
-            visible: index < 6
+            visible: index < 4
             width: model.isActive ? 35: 17
             height: 17
             radius: 10
@@ -37,8 +33,8 @@ Row {
             Behavior on color { ColorAnimation { duration: 200 } }
             Behavior on width { NumberAnimation { duration: 200; easing.type: Easing.InOutQuad } }
 
-            color: model.isActive ? topPanelConfig.activeWorkspaceDotColor : (windowCount > 0 ? topPanelConfig.notActiveWorkspaceDotColor : topPanelConfig.emptyWorkspaceDotColor)
-            
+            color: model.isActive ? Config.workspaceDotActive : Config.workspaceDotInactive
+
             // Text {
             //     text: index
             //     anchors.centerIn: parent

@@ -4,8 +4,6 @@ import Quickshell
 import Quickshell.Wayland
 import "../../configs/"
 
-import "../../modules/rim"
-
 PanelWindow {
     id: toppanelWindow
       
@@ -34,14 +32,14 @@ PanelWindow {
 
         Rectangle {
 
-          anchors {
-            left: parent.left
-            right: parent.right
-            leftMargin: 600
-            rightMargin: 600
-          }
+            anchors {
+                left: parent.left
+                right: parent.right
+                leftMargin: 600
+                rightMargin: 600
+            }
 
-          id: panelBackground
+            id: panelBackground
             width: parent.width
             height: parent.height + 15
             y: -15
@@ -66,7 +64,7 @@ PanelWindow {
               anchors.verticalCenterOffset: 4
 
             }
-            
+
             WorkSpaceBar {
               id: workSpaceBar
               anchors.centerIn: parent
@@ -78,18 +76,8 @@ PanelWindow {
               anchors.verticalCenter: parent.verticalCenter
               anchors.verticalCenterOffset: 2
             }
-            MultiEffect {
-              source: parent
-              anchors.fill: parent
-
-              shadowEnabled: true
-              shadowColor: "#25000000"
-              shadowBlur: 0.9
-              shadowHorizontalOffset: 1 
-              shadowVerticalOffset: 0
-              autoPaddingEnabled: true
-          }
         }
+
 
     }
 
