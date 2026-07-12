@@ -46,6 +46,6 @@ jobs:
           xvfb-run --help
       - name: Run quickshell
         run: |
-          sudo -u builder xvfb-run --server-args="-screen 0 1024x768x24" timeout 5s quickshell ./shell.qmp
+          sudo -u builder xvfb-run --server-args="-screen 0 1024x768x24" timeout 5s quickshell --check ./shell.qml
         
 
